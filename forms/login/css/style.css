@@ -1,0 +1,264 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	font-family: "Roboto";
+	outline: none;
+	border: none;
+}
+
+html, body {
+	height: 100%;
+	background: #0A0A0A;
+}
+
+.align {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding-bottom: 8px;
+}
+.align h1{
+	text-align: center;
+	color: #ffd584;
+}
+.align h1 span{
+	color:white;
+}
+
+
+.logo {
+	width: 120px;
+}
+
+.card {
+	margin-top: 28px;
+	height: 100%;
+	max-height: 420px;
+	width: 396px;
+	background: #121212;
+	border: 1px solid #373737;
+	border-radius: 10px;
+	overflow: hidden;
+	transition: max-height 0.2s;
+}
+
+.extend {
+	max-height: 600px;
+}
+
+
+.head {
+	width: 100%;
+	display: flex;
+	height: 72px;
+	border-bottom: 1px solid #373737;
+	justify-content: space-between;
+}
+
+.head a {
+	height: 100%;
+	padding: 0 28px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: rgb(140,140,140);
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.head .selected {
+	position: relative;
+	color: #ffd584;
+	font-weight: 700;
+}
+
+.head .selected:after {
+	position: absolute;
+	content: "";
+	bottom: 0;
+	left: 0;
+	height: 5px;
+	width: 100%;
+	background: #ffd584;
+	border-radius: 99px 99px 0 0;
+}
+
+.tabs {
+	height: calc(100% - 72px);
+	display: flex;
+}
+
+form {
+	width: 100%;
+	height: 100%;
+	flex-shrink: 0;
+	padding: 44px 38px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	right: 0;
+	transition: right 0.2s;
+}
+
+.extend form {
+	right: 100%;
+}
+
+.inputs {
+	width: 100%;
+	padding-top: 6px;
+}
+
+.input {
+	position: relative;
+	margin-bottom: 20px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.input input {
+	width: 100%;
+	font-size: 17px;
+	background: #1C1C1C;
+	border-radius: 8px;
+	padding: 16px 18px 16px 51px;
+	color: rgb(220,220,220);
+}
+
+.input img {
+	width: 16px;
+	position: absolute;
+	left: 19px;
+}
+
+.checkbox {
+	height: 40px;
+	display: flex;
+	align-items: center;
+	position: relative;
+	cursor: pointer;
+}
+
+.checkbox input {
+	position: absolute;
+	opacity: 0;
+	height: 0;
+	width: 0;
+}
+
+.checkbox span {
+	display: flex;
+	align-items: center;
+	color: rgb(110,110,110);
+	font-size: 16px;
+	user-select: none;
+}
+
+.checkbox span:before {
+	content: "";
+	width: 22px;
+	height: 22px;
+	border-radius: 6px;
+	margin-right: 16px;
+	background-color: #1C1C1C;
+}
+
+.checkbox:hover input ~ span:before {
+	background-color: rgb(50,50,50);
+}
+
+.checkbox input:checked ~ span:before {
+	background-image: url(../img/checked.png);
+	background-size: cover;
+}
+
+.card button {
+	display: block;
+	background: #ffd584;
+	padding: 14px 52px;
+	border-radius: 12px;
+	color: black;
+	font-weight: 700;
+	font-size: 21px;
+	cursor: pointer;
+}
+
+/* ======SOCIAL MEDIA ICONS============*/
+
+h1{
+	margin-top: -3vh;
+	text-align: center;
+}
+h6{
+	margin-bottom: 1vh;
+	text-align: center;
+	color: white;
+}
+ul {
+  position:relative;
+  top:35%;;
+  left:50%;
+  transform: translate(-50%, -50%);
+  margin:0;
+  padding:0;
+  display:flex;
+}
+
+ul li {
+  list-style: none;
+}
+
+ul li a {
+  position: relative;
+  width:60px;
+  height:60px;
+  display:block;
+  text-align:center;
+  margin:0 10px;
+  border-radius: 50%;
+  padding: 6px;
+  box-sizing: border-box;
+  text-decoration:none;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+  background:linear-gradient(#ffd584,black);
+  transition: .5s;
+}
+
+ul li a:hover {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+ul li a .fa {
+  /* widht: 100%; */
+  height:100%;
+  display:block;
+  background:linear-gradient(#ffd584,black);
+  border-radius: 50%;
+  line-height: calc(60px - 12px);
+  font-size:24px;
+  color: #262626;
+  transition: .5s;
+}
+
+ul li:nth-child(1) a:hover .fa {
+  color: #3b5998;
+}
+
+ul li:nth-child(2) a:hover .fa {
+  color: #00aced;
+}
+
+ul li:nth-child(3) a:hover .fa {
+  color: #dd4b39;
+}
+
+ul li:nth-child(4) a:hover .fa {
+  color: #007bb6;
+}
