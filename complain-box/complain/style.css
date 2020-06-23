@@ -1,0 +1,37 @@
+body{
+    margin: 0;
+    padding: 0;
+
+}
+section{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(com.jpg);
+    background-attachment: fixed;
+    height: 100vh;
+} 
+section .layout
+{
+    position: relative;
+    top: 35%;
+    left: 30%;
+    max-width: 600px;
+    padding: 50px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0,.5);
+    overflow: hidden;
+    color: rgb(255, 254, 254);
+}
+section .layout::before
+{
+   content: '';
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left:0;
+   right: 0;
+   background: url(com.jpg);
+    background-attachment: fixed;
+    filter: blur(6px);
+}
