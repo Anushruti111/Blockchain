@@ -1,0 +1,46 @@
+pragma solidity ^0.4.18;
+
+contract Donation{
+     struct Admin{
+        string Aname;
+        string Aid;
+        string Apassword;
+    }
+
+    struct Reciever{
+        uint Rage;
+        string Rgender;
+        string Robile;
+    }
+
+    struct Doner{
+        uint Did;
+   string Dname;
+        string Dmobile;
+        string Daadhaar;
+        string Demail;
+        string Dpassword;
+    }
+   
+    struct Item{
+        string I_item_name;
+        string Icode;
+        uint I_tem_amount;
+        address picking_address;
+    }
+     
+ Doner [] dons;
+ function Signup(uint Did, string Dname,string Dmobile,string memory Daadhaar, string Dpassword, string Demail) public{
+        Doner memory d=Doner(Did,Dname,Dmobile,Daadhaar,Dpassword,Demail);
+       dons.push(d);
+    }
+    function Login(string _Demail, string _Dpassword)public {
+        if((Doner.Demail==_Demail)&&(Doner.Dpassword==_Dpassword))
+        _;
+    }
+    function Login()Login public returns(int){
+        return 1;
+    }
+
+
+}
