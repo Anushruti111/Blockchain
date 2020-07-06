@@ -1,0 +1,146 @@
+<html>
+    <head>
+        <title>PersonalDetail</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+        <!-- ==============Jquery code of file upload============== -->
+        <script>
+            $(document).ready(function(){
+            $("#filePHOTO").change(function(){
+            $("#file_error").html("");
+            $(".file_upload1").css("border-color","#F0F0F0");
+            var file_size = $('#filePHOTO')[0].files[0].size;
+            if(file_size>300000) {
+            $("#file_error").html("<p style='color:#FF0000'>File size is greater than 300kb</p>");
+            $(".file_upload1").css("border-color","#FF0000");
+            return false;
+            } 
+            return true;
+            });
+            });
+            </script>
+             <script src="/node_modules/web3/dist/web3.min.js"></script>
+             <script src="/contract/smartcontract.js"></script>
+             <script>
+               $(document).ready(function(){
+                   $("#register").click(function(){
+                       $("doner").select(function(){
+                       var Dname=$("#name").val();
+                       var Dmobile=$("#mobile").val();
+                       var Daddress=$("#address").val();
+                       var Demail=$("#email").val();
+                       var Dpassword=$("#password").val();
+           
+                       if(typeof web3!='undefined'){
+                           web3=new Web3(web3.currentProvider);
+                       }else{
+                           web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+                       }
+                       web3.eth.defaultAccount=web3.eth.accounts[0];
+                       var sc=web3.eth.contract(ABI);
+                       var tc=sc.at(address);
+                       tc.registerDoner(Dname,mobile,Daddress,Demail,password);
+                       alert("Doner Created");
+                    });
+                    $("ngo").select(function(){
+                       var Nname=$("#name").val();
+                       var Nmobile=$("#mobile").val();
+                       var Naddress=$("#address").val();
+                       var Nemail=$("#email").val();
+                       var Npassword=$("#password").val();
+           
+                       if(typeof web3!='undefined'){
+                           web3=new Web3(web3.currentProvider);
+                       }else{
+                           web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+                       }
+                       web3.eth.defaultAccount=web3.eth.accounts[0];
+                       var sc=web3.eth.contract(ABI);
+                       var tc=sc.at(address);
+                       tc.registerDoner(Nname,Nmobile,Naddress,Nemail,Npassword);
+                       alert("NGO Created");
+                    });
+
+                   });
+               });      
+             </script>
+
+
+
+    </head>
+    <body>
+        
+        <div class="container register">
+            <div class="row">
+                <div class="col-md-3 register-left">
+                    <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                    <h3>Welcome</h3>
+                    <p>Please feed here your personal detail!</p>
+                    <!-- <input type="submit" name="" value="Submit"> -->
+                   <div class="btns">
+                    <a href="/forms/login/loin-registration.html">Submit</a><br/>
+                   </div>
+                </div>
+                <div class="col-md-9 register-right">
+                    <!-- <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Employee</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Hirer</a>
+                        </li>
+                    </ul> -->
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <h3 class="register-heading">Personal Detail Form</h3>
+                            <div class="row register-form">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Full Name *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Current Address *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="maxl">
+                                            <label class="radio inline"> 
+                                                <input type="radio" name="select" value="Doner" id="doner" checked>
+                                                <span> Doner </span> 
+                                            </label>
+                                            <label class="radio inline"> 
+                                                <input type="radio" name="select" value="NGO" id="ngo">
+                                                <span>NGO </span> 
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Your Email *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Password *" value="" />
+                                    </div>
+                                    <input type="submit" class="btnRegister"  value="Register" id="register" href="#"/>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
